@@ -90,7 +90,15 @@ GameManager.prototype.addRandomTile = function () {
     }
 
     if (rand < 1.0 / 20.0) {
-	value = max / 8;
+	var items = [];
+
+	var curr = 2;
+	while (curr <= max / 8) {
+	    items.push(curr);
+	    curr *= 2;
+	}
+
+	value = items[Math.floor(Math.random()*items.length)];
     } else if (rand < 3.0 / 20.0) {
 	value = 4;
     } else {
